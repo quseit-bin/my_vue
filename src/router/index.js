@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Hello from '@/components/Hello'
 import Top from '@/components/Top'
 import Box from '@/components/Box'
+import Item from '@/components/Item'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/box',
       name: 'Box',
       component: Box
+    },
+    {
+      path: '/item',
+      name: 'Item',
+      component: Item
     }
   ]
 })
