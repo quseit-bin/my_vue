@@ -4,14 +4,12 @@
             <img class="img" :src="img_url">
             <span class="item-title">{{ title }}</span>
             <div class="rating">
-                <span class="stars">
-                    <span class="stars-item stars-full"></span>
-                    <span class="stars-item stars-full"></span>
-                    <span class="stars-item stars-full"></span>
-                    <span class="stars-item stars-full"></span>
-                    <span class="stars-item stars-gray"></span>
+                <span class="stars" v-if="average !=0">
+                    <span class="stars-item stars-full" v-for="v in stars.full" ></span>
+                    <span class="stars-item stars-gray" v-for="v in stars.gray"></span>
                 </span>
-                <span>{{ average }}</span>
+                <span v-if="average != 0">{{ average }}</span>
+                <span v-if="average == 0">暂无评分</span>
             </div>
         </a>
     </div>
@@ -23,32 +21,24 @@ export default {
     props: ['title', 'average','img_url'],
     data() {
         return {
+            stars: ''
         }
     },
-    computed: {
-        getStars: function() {
-            switch(this.average){
-                case this.average<=2:
-                    data.full = 1;
-                    data.gray = 4;
-                    break;
-                case 2<this.average<=4:
-                    data.full = 2;
-                    data.gray = 3;
-                    break;
-                case 4<this.average<7.5:
-                    data.full = 3;
-                    data.gray = 2;
-                    break;
-                case 7.5<=this.average<9.2:
-                    data.full = 4;
-                    data.gray = 1;
-                    break;
-                default:
-                    data.full = 5;
-                    data.gray = 0;
-                    break;
-            }
+    mounted: function() {
+        if(this.average<=2){
+            this.stars = {full: 1, gray: 4};
+        }
+        else if(2<this.average && this.average<=4){
+            this.stars = {full: 2, gray: 3};
+        }
+        else if(4<this.average && this.average<7.5){
+            this.stars = {full: 3, gray: 2};
+        }
+        else if(7.5<=this.average && this.average<9.2){
+            this.stars = {full: 4, gray: 1};
+        }
+        else{
+            this.stars = {full: 5, gray: 0};
         }
     }
 }
