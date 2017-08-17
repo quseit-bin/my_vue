@@ -1,7 +1,7 @@
 <template>
     <div class="item">
-        <a :href="url">
-            <img :src="img_url" class="img"/>
+        <a href="">
+            <img class="img" :src="img_url">
             <span class="item-title">{{ title }}</span>
             <div class="rating">
                 <span class="stars">
@@ -11,7 +11,7 @@
                     <span class="stars-item stars-full"></span>
                     <span class="stars-item stars-gray"></span>
                 </span>
-                <span>7.5</span>
+                <span>{{ average }}</span>
             </div>
         </a>
     </div>
@@ -20,11 +20,35 @@
 <script>
 export default {
     name: 'item',
+    props: ['title', 'average','img_url'],
     data() {
         return {
-            url: 'https://m.douban.com/movie/subject/26363254?refer=home',
-            img_url: 'https://qnmob2.doubanio.com/view/movie_poster_cover/lpst/public/p2485983612.jpg?imageView2/0/q/80/w/9999/h/400/format/jpg',
-            title: '战狼2'
+        }
+    },
+    computed: {
+        getStars: function() {
+            switch(this.average){
+                case this.average<=2:
+                    data.full = 1;
+                    data.gray = 4;
+                    break;
+                case 2<this.average<=4:
+                    data.full = 2;
+                    data.gray = 3;
+                    break;
+                case 4<this.average<7.5:
+                    data.full = 3;
+                    data.gray = 2;
+                    break;
+                case 7.5<=this.average<9.2:
+                    data.full = 4;
+                    data.gray = 1;
+                    break;
+                default:
+                    data.full = 5;
+                    data.gray = 0;
+                    break;
+            }
         }
     }
 }

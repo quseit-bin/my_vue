@@ -4,6 +4,7 @@ import Hello from '@/components/Hello'
 import Top from '@/components/Top'
 import Box from '@/components/Box'
 import Item from '@/components/Item'
+import Movie from '@/page/Movie'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/item',
       name: 'Item',
       component: Item
+    },
+    {
+      path: '/movie',
+      name: 'Movie',
+      component: Movie
     }
   ]
 })

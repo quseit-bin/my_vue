@@ -22,7 +22,7 @@ ul
   list-style none
 
 #app
-    max-width 768px
+    max-width 680px
     margin 0 auto
 	 color #111
     font-size 12px
