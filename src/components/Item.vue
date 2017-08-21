@@ -8,7 +8,7 @@
                     <span class="stars-item stars-full" v-for="v in stars.full" ></span>
                     <span class="stars-item stars-gray" v-for="v in stars.gray"></span>
                 </span>
-                <span v-if="average != 0">{{ setaverage }}</span>
+                <span v-if="average != 0">{{ average }}</span>
                 <span v-if="average == 0">暂无评分</span>
             </div>
         </a>
@@ -22,11 +22,6 @@ export default {
     data() {
         return {
             stars: ''
-        }
-    },
-    computed: {
-        setAverage() {
-            return this.average.toFixed(1);
         }
     },
     mounted: function() {

@@ -1,17 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
-import Top from '@/components/Top'
-import Box from '@/components/Box'
-import Item from '@/components/Item'
 import Movie from '@/page/Movie'
 import Nowin from '@/page/MovieNowIn'
+import Soon from '@/page/MovieSoon'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    {
+    /*{
       path: '/',
       name: 'Hello',
       component: Hello
@@ -30,6 +27,11 @@ export default new Router({
       path: '/item',
       name: 'Item',
       component: Item
+    },*/
+    {
+      path: '*',
+      name: 'index',
+      component: Movie
     },
     {
       path: '/movie',
@@ -40,6 +42,11 @@ export default new Router({
       path: '/movienowin',
       name: 'Nowin',
       component: Nowin
+    },
+    {
+      path: '/moviesoon',
+      name: 'Soon',
+      component: Soon
     }
   ]
 })

@@ -19,12 +19,12 @@ export default {
 		return {
 			hot_movie_config : {
 				title: "影院热播", 
-				more_url: "https://m.douban.com/movie/nowintheater?loc_id=108288",
+				more_url: "#/movienowin",
 				desc_url: "https://api.douban.com/v2/movie/in_theaters"
 			},
 			soon_movie_config : {
 				title: "即将上映", 
-				more_url: "https://m.douban.com/movie/watchonline",
+				more_url: "#/moviesoon",
 				desc_url: "http://api.douban.com/v2/movie/coming_soon"
 			}
 		}

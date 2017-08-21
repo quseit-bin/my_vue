@@ -1,7 +1,7 @@
 <template>
 	<div class="movie-now">
 		<top></top>
-	    <h2>影院热映</h2>
+	    <h2>即将上映</h2>
         <item v-for="v in data.subjects" :title="v.title" :average="v.rating.average" :img_url="v.images.small" ></item>	
 	</div>
 </template>

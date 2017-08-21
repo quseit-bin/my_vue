@@ -4,7 +4,7 @@
             <a href="">{{ msg }}</a>
         </div>
         <ul class="t menu">
-            <li><a href="">电影</a></li>
+            <li><a href="#/movie">电影</a></li>
             <li><a href="">图书</a></li>
             <li><a href="">广播</a></li>
             <li><a href="">小组</a></li>
