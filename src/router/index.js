@@ -5,6 +5,7 @@ import Top from '@/components/Top'
 import Box from '@/components/Box'
 import Item from '@/components/Item'
 import Movie from '@/page/Movie'
+import Nowin from '@/page/MovieNowIn'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/movie',
       name: 'Movie',
       component: Movie
+    },
+    {
+      path: '/movienowin',
+      name: 'Nowin',
+      component: Nowin
     }
   ]
 })

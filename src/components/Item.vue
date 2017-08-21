@@ -8,7 +8,7 @@
                     <span class="stars-item stars-full" v-for="v in stars.full" ></span>
                     <span class="stars-item stars-gray" v-for="v in stars.gray"></span>
                 </span>
-                <span v-if="average != 0">{{ average }}</span>
+                <span v-if="average != 0">{{ setaverage }}</span>
                 <span v-if="average == 0">暂无评分</span>
             </div>
         </a>
@@ -22,6 +22,11 @@ export default {
     data() {
         return {
             stars: ''
+        }
+    },
+    computed: {
+        setAverage() {
+            return this.average.toFixed(1);
         }
     },
     mounted: function() {
@@ -47,6 +52,7 @@ export default {
 <style lang="stylus" scoped>
 .item
     width 100px
+    width 5rem
     text-align center
     display inline-block
     vertical-align top
@@ -65,15 +71,16 @@ export default {
     white-space nowrap
     word-wrap normal
     display block
-    margin-top .6rem
+    margin-top 10px
+    margin-top .5rem
+    margin-bottom 4px
     margin-bottom .2rem
-    line-height .94rem
-    font-size .9rem
+    font-size .7rem
 
 .rating
     vertical-align middle
-    line-height .9rem
     font-size 12px
+    font-size .6rem
     color #aaa
 
 .stars-full
@@ -84,9 +91,9 @@ export default {
 
 .stars-item
     width 10px
+    width .5rem
     height 10px
+    height .5rem
     background-size 100%
-    margin-left -1px
-    margin-right -1px
     display inline-block
 </style>

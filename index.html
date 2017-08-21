@@ -12,9 +12,36 @@
 </html>
 
 <style type="text/css">
-body {
+html {
 	color: #111;
-  font-size: 12px;
+  font-size: 20px;
   font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
 }
 </style>
+<script>
+  window.onload=function(){
+    init_rem();
+  }
+  window.onresize = function(){
+    init_rem();
+  }
+  function init_rem(){
+    var body_width = document.body.clientWidth <= window.screen.width ? document.body.clientWidth : window.screen.width;
+    var html_node = document.getElementsByTagName('html')[0];
+    if(body_width > 500){
+      font_size = '20px';
+      html_node.style.fontSize = font_size;
+      return;
+    }
+
+    var base_width = 360;
+    var font_size = body_width/base_width*20;
+    if(font_size<17)
+      font_size = Math.floor(font_size) +'px'
+    else if(font_size<20)
+      font_size = Math.floor(font_size*10) / 10 +'px'
+    else
+      font_size = Math.floor(font_size*100) / 100 +'px'
+    html_node.style.fontSize = font_size;
+  }
+</script>

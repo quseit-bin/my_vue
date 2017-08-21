@@ -22,9 +22,8 @@ ul
   list-style none
 
 #app
-    max-width 680px
+    max-width 690px
     margin 0 auto
-	 color #111
-    font-size 12px
+	  color #111
     font-family "Helvetica Neue" Helvetica Roboto Arial sans-serif
 </style>
