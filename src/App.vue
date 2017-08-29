@@ -21,6 +21,19 @@ a
 ul
   list-style none
 
+.clearfix { 
+  *zoom: 1; 
+} 
+.clearfix:before, 
+.clearfix:after { 
+  display: table; 
+  line-height: 0; 
+  content: ""; 
+}
+.clearfix:after { 
+  clear: both; 
+}
+
 #app
     max-width 690px
     margin 0 auto
