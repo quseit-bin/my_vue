@@ -45,3 +45,86 @@ html {
     html_node.style.fontSize = font_size;
   }
 </script>
+<script>
+// 扩展string方法 网页按英文计算字符串长度 
+String.prototype.lengthByEn = function(){
+  return this.replace(/[\u0391-\uFFE5]/g,"11").length;
+}
+//按英文长度截取字符串
+String.prototype.cutStrByEn = function(len){
+  if ( !len )
+    return '';
+  if (this.lengthByEn() < len )
+    return this.toString();
+  str = new String();
+  str_len = 0;
+  for (var i = 0; i < this.length; i++) {
+    var s = this.charAt(i);
+    str = str.concat(s);
+    str_len++;
+    if (escape(s).length > 4 ){
+      str_len ++;
+    }
+    if (str_len >= len) {
+      return str;
+    }
+  }
+}
+
+//初始化扩展打开 需配合以上两个方法
+function init_open_close_script(el, status=false){
+    var e = document.getElementById(el) || document.getElementsByClassName(el)[0];
+    if (!e) {
+        console.log('need a id or className');
+        return;
+    }
+    if (status) {
+        _open_script(e, s=status);
+    }else {
+        _close_script(e);
+    }
+}
+
+function _close_script(e){
+    var content = e.getAttribute('data-content') || (function(){ console.log('please add content'); return ''; }());
+    var number = e.getAttribute('data-number')*2;
+    if (number) {
+        var short_content = number <= content.lengthByEn() ? content.cutStrByEn(number) + '...' : content;
+    }else {
+        var line = e.getAttribute('data-line') || 3;
+        var line_num = e.getAttribute('data-line-num') || 23;
+        number = line*line_num*2-10;
+        var short_content = number <= content.lengthByEn() ? content.cutStrByEn(number) + '...' : content;
+    }
+    var span = '<span>'+short_content+'</span>';
+    e.innerHTML = span;
+    var a = document.createElement('a');
+
+    if (number <= content.lengthByEn()) {
+        a.href = 'javascript: void(0)';
+        a.innerText = '(展开)';
+        a.style.float = 'right';
+        e.insertBefore(a,span.nextSiblings);
+        e.getElementsByTagName('a')[0].addEventListener('click', function(){ _open_script(e) })
+    }
+  
+}
+
+function _open_script(e, s=false){
+    var content = e.getAttribute('data-content') || (function(){ console.log('please add content'); return ''; }());
+    var span = '<span>'+content+'</span>';
+    e.innerHTML = span;
+    if (!s){
+        var a = document.createElement('a');
+        a.href = 'javascript: void(0)';
+        a.innerText = '(收起)';
+        a.style.float = 'right';
+        e.insertBefore(a,span.nextSiblings);
+        e.getElementsByTagName('a')[0].addEventListener('click', function(){ _close_script(e) })
+    }
+}
+
+window.onload = function(){
+    init_open_close_script('box');
+}
+</script>

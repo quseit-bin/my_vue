@@ -2,11 +2,11 @@
 	<div class="movie-content">
 		<top></top>
 		<div class="content">
-			<h2>战狼2</h2>
-			<div class="clearfix">
+			<h1>战狼2</h1>
+			<section class="clearfix">
 				<div class="info">
 					<div class="rating">
-		                <span class="stars"">
+		                <span class="stars">
 		                    <span class="stars-item stars-full"></span>
 		                    <span class="stars-item stars-full"></span>
 		                    <span class="stars-item stars-full"></span>
@@ -16,11 +16,22 @@
 		                <span>7.4</span>
 		                <span>358170评价</span>
 		            </div>
+		            <p>
+		            	123分钟 / 动作 / 吴京(导演) / 吴京 / 弗兰克·格里罗 / 吴刚 / 张翰 / 卢靖姗 / 丁海峰 / 淳于珊珊 / 余男 / 于谦 / 石兆琪 / 海蒂·玛尼梅可 / 奥列格·亚历山大罗维奇 / 阿隆·汤尼 / 泰勒·哈里斯 / 勃小龙 / 2017-07-27(中国大陆) 上映
+		            </p>
 				</div>
 				<div class="info-img">
 					<img src="https://img3.doubanio.com/view/movie_poster_cover/ipst/public/p2485983612.jpg">
 				</div>
-			</div>
+			</section>
+			<section class="look">
+			 	<a href="javascript:void(0)">想看</a>
+			 	<a href="javascript:void(0)">看过</a>
+			</section>
+			<section class="desc">
+				<h2>战狼2的剧情简介</h2>
+				<p id="box" data-line-num="21" data-content="故事发生在非洲附近的大海上，主人公冷锋（吴京 饰）遭遇人生滑铁卢，被“开除军籍”，本想漂泊一生的他，正当他打算这么做的时候，一场突如其来的意外打破了他的计划，突然被卷入了一场非洲国家叛乱，本可以安全撤离，却因无法忘记曾经为军人的使命，孤身犯险冲回沦陷区，带领身陷屠杀中的同胞和难民，展开生死逃亡。随着斗争的持续，体内的狼性逐渐复苏，最终孤身闯入战乱区域，为同胞而战斗。"></p>
+			</section>
 		</div>
 	</div>
 </template>
@@ -42,10 +53,12 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+fz = .75rem
+
 .rating
     vertical-align middle
     font-size 15px
-    font-size .75rem
+    font-size fz
     color #aaa
     >span
     	margin-right .2rem
@@ -69,16 +82,48 @@ export default {
     display inline-block
 .content
 	padding 1rem
-	h2
+	h1
 		font-size 1.2rem
 		font-weight 400
 .info
 	float left
 	width 10rem
+	p
+		margin-top fz
+		font-size .7rem
+		line-height 1.1rem
 .info-img
 	float right
 	width 5rem
 	img 
-		width 100%	
+		width 100%
+section
+	margin-bottom 1.5rem
     
+.look
+	display flex
+	justify-content space-between
+	a
+		width 7.5rem
+		height 1.5rem
+		box-sizing border-box
+		border 1px solid #ffb712
+		display inline-block
+		text-align center
+		border-radius .15rem
+		font-size fz
+		color #ffb712
+		line-height 1.5rem	
+.desc
+	line-height: 1.1rem
+	word-wrap break-word
+	font-size fz
+	color #494949
+	h2
+		color #aaa
+		font-size fz
+		margin-bottom .5rem
+h1,h2,h3
+	font-weight normal
 </style>
+
