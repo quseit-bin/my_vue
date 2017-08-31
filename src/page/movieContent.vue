@@ -30,7 +30,7 @@
 			</section>
 			<section class="desc">
 				<h2>战狼2的剧情简介</h2>
-				<p id="box" data-line-num="21" data-content="故事发生在非洲附近的大海上，主人公冷锋（吴京 饰）遭遇人生滑铁卢，被“开除军籍”，本想漂泊一生的他，正当他打算这么做的时候，一场突如其来的意外打破了他的计划，突然被卷入了一场非洲国家叛乱，本可以安全撤离，却因无法忘记曾经为军人的使命，孤身犯险冲回沦陷区，带领身陷屠杀中的同胞和难民，展开生死逃亡。随着斗争的持续，体内的狼性逐渐复苏，最终孤身闯入战乱区域，为同胞而战斗。"></p>
+				<octext></octext>
 			</section>
 		</div>
 	</div>
@@ -38,10 +38,11 @@
 
 <script>
 import Top from '@/components/Top';
+import octext from '@/components/OpenCloseText';
 
 export default {
 	components: {
-		Top
+		Top, octext
 	},
 	name: 'movie-content',
 	data() {
