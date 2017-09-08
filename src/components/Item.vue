@@ -1,6 +1,6 @@
 <template>
     <div class="item">
-        <a href="">
+        <a :href="'#/mc?id='+m_id">
             <img class="img" :src="img_url">
             <span class="item-title">{{ title }}</span>
             <div class="rating">
@@ -18,7 +18,7 @@
 <script>
 export default {
     name: 'item',
-    props: ['title', 'average','img_url'],
+    props: ['m_id','title', 'average','img_url'],
     data() {
         return {
             stars: ''

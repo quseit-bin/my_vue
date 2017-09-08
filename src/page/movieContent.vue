@@ -2,7 +2,7 @@
 	<div class="movie-content">
 		<top></top>
 		<div class="content">
-			<h1>战狼2</h1>
+			<h1>{{ data.title }}</h1>
 			<section class="clearfix">
 				<div class="info">
 					<div class="rating">
@@ -13,15 +13,15 @@
 		                    <span class="stars-item stars-full"></span>
 		                    <span class="stars-item stars-gray"></span>
 		                </span>
-		                <span>7.4</span>
-		                <span>358170评价</span>
+		                <span>{{ data.rating.average }}</span>
+		                <span>{{ data.comments_count }}评价</span>
 		            </div>
 		            <p>
-		            	123分钟 / 动作 / 吴京(导演) / 吴京 / 弗兰克·格里罗 / 吴刚 / 张翰 / 卢靖姗 / 丁海峰 / 淳于珊珊 / 余男 / 于谦 / 石兆琪 / 海蒂·玛尼梅可 / 奥列格·亚历山大罗维奇 / 阿隆·汤尼 / 泰勒·哈里斯 / 勃小龙 / 2017-07-27(中国大陆) 上映
+		            	{{ data.summary }}
 		            </p>
 				</div>
 				<div class="info-img">
-					<img src="https://img3.doubanio.com/view/movie_poster_cover/ipst/public/p2485983612.jpg">
+					<img :src="data.images.small">
 				</div>
 			</section>
 			<section class="look">
@@ -29,8 +29,8 @@
 			 	<a href="javascript:void(0)">看过</a>
 			</section>
 			<section class="desc">
-				<h2>战狼2的剧情简介</h2>
-				<octext></octext>
+				<h2>{{ data.title }}的剧情简介</h2>
+				<octext :content="{{ data.summary }}"></octext>
 			</section>
 		</div>
 	</div>
@@ -39,6 +39,7 @@
 <script>
 import Top from '@/components/Top';
 import octext from '@/components/OpenCloseText';
+import jsonp from "jsonp";
 
 export default {
 	components: {
@@ -47,8 +48,16 @@ export default {
 	name: 'movie-content',
 	data() {
 		return {
-
+			data: ''
 		}
+	},
+	mounted: function() {
+		var that = this;
+		var url = 'http://api.douban.com/v2/movie/subject/'+ that.$route.query.id;
+        jsonp(url , function(err, data){
+            if (err) throw err;
+            that.data = data
+        });
 	}
 }
 </script>

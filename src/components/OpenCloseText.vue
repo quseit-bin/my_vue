@@ -9,7 +9,7 @@
 <script>
 export default {
 	name: 'octext',
-	props: ['line', 'line_num', 'number', 'conent'],
+	props: ['line', 'line_num', 'number', 'content'],
 	data() {
 		return {
 			show_content: '',
@@ -20,7 +20,7 @@ export default {
 		this.true_line = this.line || 3;
 		this.true_line_num = this.line_num || 21;
 		this.true_number = this.number || 0;
-		this.true_content = this.conent || 'prop 是单向绑定的：当父组件的属性变化时，将传导给子组件，但是不会反过来。这是为了防止子组件无意修改了父组件的状态——这会让应用的数据流难以理解。虽然废弃了props的双向绑定对于整个项目整体而言是有利且正确的，但是在某些时候我们确实需要从组件内部修改props的需求';
+		this.true_content = this.content || 'prop 是单向绑定的：当父组件的属性变化时，将传导给子组件，但是不会反过来。这是为了防止子组件无意修改了父组件的状态——这会让应用的数据流难以理解。虽然废弃了props的双向绑定对于整个项目整体而言是有利且正确的，但是在某些时候我们确实需要从组件内部修改props的需求';
 		this.closeShowContent();
 	},
 	methods: {
@@ -50,7 +50,7 @@ export default {
 			if (this.true_number) {
 				this.show_content = this.lengthByEn(this.true_content) > this.true_number*2 ? this.cutStrByEn(this.true_content, this.true_number*2-10)+'...' : this.true_content ;
 			}else{
-				this.show_content = this.lengthByEn(this.true_content) > this.true_line*this.true_line_num*2 ? this.cutStrByEn(this.true_content, this.true_line*this.true_line_num*2-10) + '...': this.true_content;
+				this.show_content = this.lengthByEn(this.true_content) > this.true_line*this.true_line_num*2 ? this.cutStrByEn(this.true_content, this.true_line*this.true_line_num*2-8) + '...': this.true_content;
 			}
 		},
 		textToggle() {

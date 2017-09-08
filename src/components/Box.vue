@@ -7,7 +7,7 @@
         <div class="content-box">
             <ul class="content">
                 <li v-for="(v, k) in data.subjects" v-if="k < 6">
-                    <item :title="v.title" :average="v.rating.average" :img_url="v.images.small"></item>
+                    <item :m_id="v.id" :title="v.title" :average="v.rating.average" :img_url="v.images.small"></item>
                 </li>
             </ul>  
         </div>
@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import Item from "@/components/Item"
-import jsonp from "jsonp"
+import Item from "@/components/Item";
+import jsonp from "jsonp";
 
 export default {
     components: {
